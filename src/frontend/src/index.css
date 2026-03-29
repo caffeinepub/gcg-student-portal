@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: 0.12 0.025 265;
+    --foreground: 0.97 0.005 265;
+    --card: 0.16 0.02 265;
+    --card-foreground: 0.97 0.005 265;
+    --popover: 0.16 0.02 265;
+    --popover-foreground: 0.97 0.005 265;
+    --primary: 0.72 0.19 200;
+    --primary-foreground: 0.1 0.01 265;
+    --secondary: 0.22 0.03 265;
+    --secondary-foreground: 0.97 0.005 265;
+    --muted: 0.22 0.03 265;
+    --muted-foreground: 0.6 0.02 265;
+    --accent: 0.22 0.03 265;
+    --accent-foreground: 0.97 0.005 265;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 10%;
+    --ring: 0.72 0.19 200;
+    --chart-1: 0.72 0.19 200;
+    --chart-2: 0.6 0.18 260;
+    --chart-3: 0.75 0.18 140;
+    --chart-4: 0.78 0.18 60;
+    --chart-5: 0.65 0.22 310;
+    --sidebar: 0.14 0.025 265;
+    --sidebar-foreground: 0.97 0.005 265;
+    --sidebar-primary: 0.72 0.19 200;
+    --sidebar-primary-foreground: 0.1 0.01 265;
+    --sidebar-accent: 0.22 0.03 265;
+    --sidebar-accent-foreground: 0.97 0.005 265;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.72 0.19 200;
+    --cyan: 0.72 0.19 200;
+    --blue: 0.55 0.2 265;
+  }
+
+  .light {
+    --background: 0.96 0.005 265;
+    --foreground: 0.15 0.02 265;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 265;
+    --primary: 0.55 0.2 200;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.92 0.01 265;
+    --secondary-foreground: 0.15 0.02 265;
+    --muted: 0.92 0.01 265;
+    --muted-foreground: 0.5 0.02 265;
+    --accent: 0.92 0.01 265;
+    --accent-foreground: 0.15 0.02 265;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0 0 0 / 12%;
+    --input: 0 0 0 / 10%;
+    --ring: 0.55 0.2 200;
+    --sidebar: 0.98 0.005 265;
+    --sidebar-foreground: 0.15 0.02 265;
+    --sidebar-primary: 0.55 0.2 200;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.92 0.01 265;
+    --sidebar-accent-foreground: 0.15 0.02 265;
+    --sidebar-border: 0 0 0 / 10%;
+    --sidebar-ring: 0.55 0.2 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(-8deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float2 {
+  animation: float2 12s ease-in-out infinite;
+}
+.animate-float3 {
+  animation: float 10s ease-in-out infinite 3s;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
